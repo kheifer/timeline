@@ -14,4 +14,8 @@ describe(TimeCalc, function(){
     let testAge = new TimeCalc(new Date("2000-09-09"))
     expect(testAge.calculateAgeInEarthYears()).toEqual(17);
   });
+  it('should return the age by planet', function(){
+    let testAge = new TimeCalc(new Date("2000-09-09"))
+    expect(testAge.getAgeInYearsByPlanet(Mercury).toEqual(4.08);
+  });
 })
