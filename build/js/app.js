@@ -20,16 +20,50 @@ var TimeCalc = exports.TimeCalc = function () {
     key: "findSeconds",
     value: function findSeconds() {
       var timeLived = this.birthday.getTime() / 1000;
-
       return timeLived;
     }
   }, {
     key: "findDifferenceBetweenTwoDates",
     value: function findDifferenceBetweenTwoDates(second) {
-      var primary = this.birthday.findSeconds();
+      var primary = this.findSeconds();
       var secondary = second.findSeconds();
       var difference = secondary - primary;
       return difference;
+    }
+  }, {
+    key: "calculateAgeInEarthYears",
+    value: function calculateAgeInEarthYears(currentDate) {
+      var age = parseFloat(this.findDifferenceBetweenTwoDates(currentDate) / 31536000).toFixed(2);
+      return age;
+    }
+  }, {
+    key: "calculateTimeLeft",
+    value: function calculateTimeLeft(total, currentDate) {
+      var age = parseFloat(total - this.calculateAgeInEarthYears(currentDate)).toFixed(2);
+
+      return age;
+    }
+  }, {
+    key: "getAgeInYearsByPlanet",
+    value: function getAgeInYearsByPlanet(age, planet) {
+      var multiplier = 0;
+      if (planet == "Mercury") {
+        multiplier = 0.24;
+      } else if (planet == "Venus") {
+        multiplier = 0.62;
+      } else if (planet == "Mars") {
+        multiplier = 1.88;
+      } else if (planet == "Jupiter") {
+        multiplier = 11.88;
+      } else if (planet == "Earth") {
+        multiplier = 1;
+      } else if (planet == "Sun") {
+        return "YOu would burn bright like a star";
+      } else {
+        return "I'm not sure how you got that planet, but we don't have data for it";
+      }
+      var planetAge = parseFloat(age / multiplier).toFixed(2);
+      return planetAge;
     }
   }]);
 
@@ -44,9 +78,43 @@ var _time = require('./../js/time.js');
 $(document).ready(function () {
   $("#date-form").submit(function (event) {
     event.preventDefault();
-    var birthday = new Date($('#birthday').val());
-    var timeSince = birthday.findSeconds();
-    $('#result').text(timeSince);
+    var sex = $('#sex').val();
+    var country = $('#countries').val();
+    var dob = $('#birthday').val();
+    var birthday = new _time.TimeCalc(new Date($('#birthday').val()));
+    var today = new _time.TimeCalc(new Date());
+    var secondsLived = birthday.findDifferenceBetweenTwoDates(today);
+    alert(secondsLived);
+    var earthYears = birthday.calculateAgeInEarthYears(today);
+    $.ajax({
+      url: 'http://api.population.io/1.0/life-expectancy/total/' + sex + '/' + country + '/' + dob + '/',
+      type: 'GET',
+      dataType: 'json',
+      success: function success(response) {
+        var totalLifeExpect = response.total_life_expectancy;
+        var spaceAge = birthday.getAgeInYearsByPlanet(earthYears, planet);
+        var yearsLeft = birthday.calculateTimeLeft(totalLifeExpect, today);
+        $('#result').append();
+        alert(birthday.calculateTimeLeft(yearsLeft, today));
+        alert(birthday.getAgeInYearsByPlanet(yearsLeft, "Mercury"));
+      },
+      error: function error() {
+        alert("There was an error processing a your life expectancy. Please try again.");
+      }
+    });
+  });
+  $.ajax({
+    url: 'http://api.population.io:80/1.0/countries',
+    type: 'GET',
+    dataType: 'json',
+    success: function success(response) {
+      $.each(response.countries, function (i, v) {
+        $('#countries').append('<option value="' + [v] + '">' + [v] + '</option>');
+      });
+    },
+    error: function error() {
+      alert("There was an error processing a list. Please try again.");
+    }
   });
 });
 

@@ -10,16 +10,41 @@
   </head>
   <body>
     <div class="container">
-      <h1></h1>
-      <form id="date-form">
-        <div class="form-group">
-          <label for="birthday">Enter your birthday!</label>
-          <input type="date" id="birthday" class="form-control" required>
-        </div>
-        <button type="submit" class="btn btn warning" name="button">Submit</button>
-      </form>
-      <div class="result">
+      <div class="jumbtron">
+        <h1>It's a Timey Wimey world</h1>
+        <h2>...where all time is relative...</h2>
       </div>
+      <div class="row">
+       <div class="col-md-8">
+         <div class="well">
+           <div class="panel panel-primary">
+             <div class="panel-heading">
+              <h3 class="panel-title">Enter your demographics below</h3>
+            </div>
+            <div class="panel-body">
+              <form id="date-form">
+                <div class="form-group">
+                  <label for="birthday">Enter your birthday!</label>
+                  <input type="date" id="birthday" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="sex">Sex</label>
+                  <select class="form-control" id="sex" required>
+                    <option>male</option>
+                    <option>female</option>
+                  </select>
+                </div>
+                <label for="counties">Country</label>
+                <select class="form-control" id="countries" required></select>
+                <button type="submit" class="btn btn warning" name="button">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="result">
     </div>
   </body>
 </html>

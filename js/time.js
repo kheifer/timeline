@@ -6,7 +6,6 @@ export class TimeCalc {
 
   findSeconds(){
     let timeLived = (this.birthday.getTime())/1000;
-
     return timeLived;
   }
   findDifferenceBetweenTwoDates(second){
@@ -15,11 +14,16 @@ export class TimeCalc {
     let difference = secondary - primary;
     return difference;
   }
-  calculateAgeInEarthYears(){
-      let age = parseFloat(this.findDifferenceBetweenTwoDates(new TimeCalc(new Date())/ 31536000).toFixed(2);
-      return age;
+  calculateAgeInEarthYears(currentDate){
+    let age = parseFloat(this.findDifferenceBetweenTwoDates(currentDate)/ 31536000).toFixed(2);
+    return age;
   }
-  getAgeInYearsByPlanet(planet){
+  calculateTimeLeft(total, currentDate){
+    let age = parseFloat(total - (this.calculateAgeInEarthYears(currentDate))).toFixed(2);
+
+    return age;
+  }
+  getAgeInYearsByPlanet(age, planet){
     let multiplier = 0;
     if(planet == "Mercury"){
       multiplier = 0.24;
@@ -31,10 +35,12 @@ export class TimeCalc {
       multiplier = 11.88;
     }else if (planet  == "Earth"){
       multiplier = 1;
-    } else{
+    }else if (planet  == "Sun"){
+      return "YOu would burn bright like a star";
+    }else{
       return "I'm not sure how you got that planet, but we don't have data for it";
     }
-    let age = (this.calculateAgeInEarthYears()* multiplier)
-    return "You would be " + age + " years old on planet " + planet;
+    let planetAge = parseFloat(age / multiplier).toFixed(2);
+    return planetAge;
   }
 }

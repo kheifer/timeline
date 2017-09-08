@@ -16,7 +16,10 @@ _An application that allows a user to calculate their age in seconds on differen
 ## Specifications
 | Behavior      | Input      | Output       |
 | ------------- | ---------- | ------------ |
-
+|The application should calculate the number of seconds between two dates |	9/24/1986, 9/8/2017 | 976924800  seconds |
+|The application shall be able to convert seconds alive to Earth Years| seconds: 976924800 | Earth years: 30.9|
+The application shall be able to convert an Earth age into the corresponding age of a selected planet | [30.3, 	"Mercury"] | 126.21 |
+Given a birthday, sex, and nationality; the application should be able to return the years remaining based upon the selected planet |	[Birthday: 9/24/1986, Sex: "male", Country: "United States",	"Mercury"]| years remaining: 168.97|
 
 # Known Bugs
 
