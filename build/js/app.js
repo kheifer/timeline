@@ -14,14 +14,22 @@ var TimeCalc = exports.TimeCalc = function () {
     _classCallCheck(this, TimeCalc);
 
     this.birthday = birthday;
-    this.currentTime = new Date();
   }
 
   _createClass(TimeCalc, [{
     key: "findSeconds",
     value: function findSeconds() {
       var timeLived = this.birthday.getTime() / 1000;
+
       return timeLived;
+    }
+  }, {
+    key: "findDifferenceBetweenTwoDates",
+    value: function findDifferenceBetweenTwoDates(second) {
+      var primary = this.birthday.findSeconds();
+      var secondary = second.findSeconds();
+      var difference = secondary - primary;
+      return difference;
     }
   }]);
 

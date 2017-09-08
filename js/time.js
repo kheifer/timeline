@@ -6,12 +6,18 @@ export class TimeCalc {
 
   findSeconds(){
     let timeLived = (this.birthday.getTime())/1000;
+
     return timeLived;
   }
   findDifferenceBetweenTwoDates(second){
-    let primary = this.findSeconds();
+    let primary = this.birthday.findSeconds();
     let secondary =  second.findSeconds();
-    let difference = primary - secondary
+    let difference = secondary - primary;
     return difference;
   }
+  calculateAgeInEarthYears(){
+      let age = parseFloat(this.birthday.findDifferenceBetweenTwoDates(new TimeCalc(new Date())/ 31536000).toFixed(2);
+      return age;
   }
+
+}
