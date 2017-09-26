@@ -36,7 +36,7 @@ $(document).ready(function(){
         let NeptuneAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Neptune");
         let PlutoAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Pluto");
         alert(birthday.calculateTimeLeft(yearsLeft, today));
-        alert(PlutoAgeLeft));
+        alert(PlutoAgeLeft);
       },
       error: function() {
         alert("There was an error processing a your life expectancy. Please try again.");
