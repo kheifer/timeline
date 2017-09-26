@@ -118,6 +118,7 @@ $(document).ready(function () {
       success: function success(response) {
         var totalLifeExpect = response.total_life_expectancy;
         var yearsLeft = birthday.calculateTimeLeft(totalLifeExpect, today);
+        alert(yearsLeft);
         var MercuryAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Mercury");
         var VenusAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Venus");
         var MarsAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Mars");
@@ -126,15 +127,15 @@ $(document).ready(function () {
         var UranusAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Uranus");
         var NeptuneAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Neptune");
         var PlutoAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Pluto");
-        $('.timeLeftLeftOnMercury').text(MercuryAgeLeft + " years on Mercury");
-        $('.timeLeftOnVenus').text(VenusAgeLeft + " years on Venus");
-        $('.timeLeftOnEarth').text(earthYears + " years on Earth");
-        $('.timeLeftOnMars').text(MarsAgeLeft + " years on Mars");
-        $('.timeLeftOnJupiter').text(JupiterAgeLeft + " years on Jupiter");
-        $('.timeLeftOnSaturn').text(SaturnAgeLeft + " years on Saturn");
-        $('.timeLeftOnUranus').text(UranusAgeLeft + " years on Uranus");
-        $('.timeLeftOnNeptune').text(NeptuneAgeLeft + " years on Neptune");
-        $('.timeLeftOnPluto').text(PlutoAgeLeft + " years on Pluto");
+        $('.timeLeftOnMercury').text(MercuryAgeLeft + " years left on Mercury");
+        $('.timeLeftOnVenus').text(VenusAgeLeft + " years left on Venus");
+        $('.timeLeftOnEarth').text(yearsLeft + " years left on Earth");
+        $('.timeLeftOnMars').text(MarsAgeLeft + " years left on Mars");
+        $('.timeLeftOnJupiter').text(JupiterAgeLeft + " years left on Jupiter");
+        $('.timeLeftOnSaturn').text(SaturnAgeLeft + " years left on Saturn");
+        $('.timeLeftOnUranus').text(UranusAgeLeft + " years left on Uranus");
+        $('.timeLeftOnNeptune').text(NeptuneAgeLeft + " years left on Neptune");
+        $('.timeLeftOnPluto').text(PlutoAgeLeft + " years left on Pluto");
       },
       error: function error() {
         alert("There was an error processing a your life expectancy. Please try again.");
