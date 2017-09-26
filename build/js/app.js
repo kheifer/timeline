@@ -86,7 +86,7 @@ var _time = require('./../js/time.js');
 $(document).ready(function () {
   $("#date-form").submit(function (event) {
     event.preventDefault();
-    $().html;
+    $('.result').show();
     var sex = $('#sex').val();
     var country = $('#countries').val();
     var dob = $('#birthday').val();
@@ -94,24 +94,47 @@ $(document).ready(function () {
     var today = new _time.TimeCalc(new Date());
     var secondsLived = birthday.findDifferenceBetweenTwoDates(today);
     var earthYears = birthday.calculateAgeInEarthYears(today);
+    var MercuryAge = birthday.getAgeInYearsByPlanet(earthYears, "Mercury");
+    var VenusAge = birthday.getAgeInYearsByPlanet(earthYears, "Venus");
+    var MarsAge = birthday.getAgeInYearsByPlanet(earthYears, "Mars");
+    var JupiterAge = birthday.getAgeInYearsByPlanet(earthYears, "Jupiter");
+    var SaturnAge = birthday.getAgeInYearsByPlanet(earthYears, "Saturn");
+    var UranusAge = birthday.getAgeInYearsByPlanet(earthYears, "Uranus");
+    var NeptuneAge = birthday.getAgeInYearsByPlanet(earthYears, "Neptune");
+    var PlutoAge = birthday.getAgeInYearsByPlanet(earthYears, "Pluto");
+    $('.timeLivedOnMercury').text(MercuryAge + " years on Mercury");
+    $('.timeLivedOnVenus').text(VenusAge + " years on Venus");
+    $('.timeLivedOnEarth').text(earthYears + " years on Earth");
+    $('.timeLivedOnMars').text(MarsAge + " years on Mars");
+    $('.timeLivedOnJupiter').text(JupiterAge + " years on Jupiter");
+    $('.timeLivedOnSaturn').text(SaturnAge + " years on Saturn");
+    $('.timeLivedOnUranus').text(UranusAge + " years on Uranus");
+    $('.timeLivedOnNeptune').text(NeptuneAge + " years on Neptune");
+    $('.timeLivedOnPluto').text(PlutoAge + " years on Pluto");
     $.ajax({
       url: 'http://api.population.io/1.0/life-expectancy/total/' + sex + '/' + country + '/' + dob + '/',
       type: 'GET',
       dataType: 'json',
       success: function success(response) {
         var totalLifeExpect = response.total_life_expectancy;
-        alert(totalLifeExpect);
-        var MercuryAge = birthday.getAgeInYearsByPlanet(earthYears, "Mercury");
-        var VenusAge = birthday.getAgeInYearsByPlanet(earthYears, "Venus");
-        var EarthAge = birthday.getAgeInYearsByPlanet(earthYears, "Earth");
-        var MarsAge = birthday.getAgeInYearsByPlanet(earthYears, "Mars");
-        var JupiterAge = birthday.getAgeInYearsByPlanet(earthYears, "Jupiter");
-        var SaturnAge = birthday.getAgeInYearsByPlanet(earthYears, "Saturn");
-        var UranusAge = birthday.getAgeInYearsByPlanet(earthYears, "Uranus");
-        var PlutoAge = birthday.getAgeInYearsByPlanet(earthYears, "Pluto");
         var yearsLeft = birthday.calculateTimeLeft(totalLifeExpect, today);
-        alert(birthday.calculateTimeLeft(yearsLeft, today));
-        alert(birthday.getAgeInYearsByPlanet(yearsLeft, "Mercury"));
+        var MercuryAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Mercury");
+        var VenusAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Venus");
+        var MarsAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Mars");
+        var JupiterAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Jupiter");
+        var SaturnAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Saturn");
+        var UranusAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Uranus");
+        var NeptuneAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Neptune");
+        var PlutoAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Pluto");
+        $('.timeLeftLeftOnMercury').text(MercuryAgeLeft + " years on Mercury");
+        $('.timeLeftOnVenus').text(VenusAgeLeft + " years on Venus");
+        $('.timeLeftOnEarth').text(earthYears + " years on Earth");
+        $('.timeLeftOnMars').text(MarsAgeLeft + " years on Mars");
+        $('.timeLeftOnJupiter').text(JupiterAgeLeft + " years on Jupiter");
+        $('.timeLeftOnSaturn').text(SaturnAgeLeft + " years on Saturn");
+        $('.timeLeftOnUranus').text(UranusAgeLeft + " years on Uranus");
+        $('.timeLeftOnNeptune').text(NeptuneAgeLeft + " years on Neptune");
+        $('.timeLeftOnPluto').text(PlutoAgeLeft + " years on Pluto");
       },
       error: function error() {
         alert("There was an error processing a your life expectancy. Please try again.");

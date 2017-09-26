@@ -3,7 +3,7 @@ import {TimeCalc} from './../js/time.js';
 $(document).ready(function(){
   $("#date-form").submit(function(event) {
     event.preventDefault();
-    $().html
+    $('.result').show();
     let sex = $('#sex').val();
     let country = $('#countries').val();
     let dob = $('#birthday').val();
@@ -19,13 +19,21 @@ $(document).ready(function(){
     let UranusAge = birthday.getAgeInYearsByPlanet(earthYears, "Uranus");
     let NeptuneAge = birthday.getAgeInYearsByPlanet(earthYears, "Neptune");
     let PlutoAge = birthday.getAgeInYearsByPlanet(earthYears, "Pluto");
+    $('.timeLivedOnMercury').text(MercuryAge+" years on Mercury");
+    $('.timeLivedOnVenus').text(VenusAge+" years on Venus");
+    $('.timeLivedOnEarth').text(earthYears+" years on Earth");
+    $('.timeLivedOnMars').text(MarsAge+" years on Mars");
+    $('.timeLivedOnJupiter').text(JupiterAge+" years on Jupiter");
+    $('.timeLivedOnSaturn').text(SaturnAge+" years on Saturn");
+    $('.timeLivedOnUranus').text(UranusAge+" years on Uranus");
+    $('.timeLivedOnNeptune').text(NeptuneAge+" years on Neptune");
+    $('.timeLivedOnPluto').text(PlutoAge+" years on Pluto");
     $.ajax({
       url: `http://api.population.io/1.0/life-expectancy/total/${sex}/${country}/${dob}/`,
       type: 'GET',
       dataType: 'json',
       success: function(response) {
         let totalLifeExpect = response.total_life_expectancy;
-        alert(totalLifeExpect);
         let yearsLeft = birthday.calculateTimeLeft(totalLifeExpect, today);
         let MercuryAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Mercury");
         let VenusAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Venus");
@@ -35,8 +43,15 @@ $(document).ready(function(){
         let UranusAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Uranus");
         let NeptuneAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Neptune");
         let PlutoAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Pluto");
-        alert(birthday.calculateTimeLeft(yearsLeft, today));
-        alert(PlutoAgeLeft);
+        $('.timeLeftLeftOnMercury').text(MercuryAgeLeft+" years on Mercury");
+        $('.timeLeftOnVenus').text(VenusAgeLeft+" years on Venus");
+        $('.timeLeftOnEarth').text(earthYears+" years on Earth");
+        $('.timeLeftOnMars').text(MarsAgeLeft+" years on Mars");
+        $('.timeLeftOnJupiter').text(JupiterAgeLeft+" years on Jupiter");
+        $('.timeLeftOnSaturn').text(SaturnAgeLeft+" years on Saturn");
+        $('.timeLeftOnUranus').text(UranusAgeLeft+" years on Uranus");
+        $('.timeLeftOnNeptune').text(NeptuneAgeLeft+" years on Neptune");
+        $('.timeLeftOnPluto').text(PlutoAgeLeft+" years on Pluto");
       },
       error: function() {
         alert("There was an error processing a your life expectancy. Please try again.");
