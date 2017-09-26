@@ -57,6 +57,14 @@ var TimeCalc = exports.TimeCalc = function () {
         multiplier = 11.88;
       } else if (planet == "Earth") {
         multiplier = 1;
+      } else if (planet == "Saturn") {
+        multiplier = 29.46;
+      } else if (planet == "Uranus") {
+        multiplier = 84.01;
+      } else if (planet == "Neptune") {
+        multiplier = 164.79;
+      } else if (planet == "Pluto") {
+        multiplier = 248.59;
       } else if (planet == "Sun") {
         return "You would burn bright like a star";
       } else {
@@ -92,9 +100,16 @@ $(document).ready(function () {
       dataType: 'json',
       success: function success(response) {
         var totalLifeExpect = response.total_life_expectancy;
-        var spaceAge = birthday.getAgeInYearsByPlanet(earthYears, planet);
+        alert(totalLifeExpect);
+        var MercuryAge = birthday.getAgeInYearsByPlanet(earthYears, "Mercury");
+        var VenusAge = birthday.getAgeInYearsByPlanet(earthYears, "Venus");
+        var EarthAge = birthday.getAgeInYearsByPlanet(earthYears, "Earth");
+        var MarsAge = birthday.getAgeInYearsByPlanet(earthYears, "Mars");
+        var JupiterAge = birthday.getAgeInYearsByPlanet(earthYears, "Jupiter");
+        var SaturnAge = birthday.getAgeInYearsByPlanet(earthYears, "Saturn");
+        var UranusAge = birthday.getAgeInYearsByPlanet(earthYears, "Uranus");
+        var PlutoAge = birthday.getAgeInYearsByPlanet(earthYears, "Pluto");
         var yearsLeft = birthday.calculateTimeLeft(totalLifeExpect, today);
-        $('#result').append();
         alert(birthday.calculateTimeLeft(yearsLeft, today));
         alert(birthday.getAgeInYearsByPlanet(yearsLeft, "Mercury"));
       },
