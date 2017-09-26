@@ -33,13 +33,13 @@ var TimeCalc = exports.TimeCalc = function () {
   }, {
     key: "calculateAgeInEarthYears",
     value: function calculateAgeInEarthYears(currentDate) {
-      var age = parseFloat(this.findDifferenceBetweenTwoDates(currentDate) / 31536000).toFixed(2);
+      var age = parseFloat((this.findDifferenceBetweenTwoDates(currentDate) / 31536000).toFixed(2));
       return age;
     }
   }, {
     key: "calculateTimeLeft",
     value: function calculateTimeLeft(total, currentDate) {
-      var age = parseFloat(total - this.calculateAgeInEarthYears(currentDate)).toFixed(2);
+      var age = parseFloat(total - this.calculateAgeInEarthYears(currentDate).toFixed(2));
 
       return age;
     }
@@ -58,11 +58,11 @@ var TimeCalc = exports.TimeCalc = function () {
       } else if (planet == "Earth") {
         multiplier = 1;
       } else if (planet == "Sun") {
-        return "YOu would burn bright like a star";
+        return "You would burn bright like a star";
       } else {
         return "I'm not sure how you got that planet, but we don't have data for it";
       }
-      var planetAge = parseFloat(age / multiplier).toFixed(2);
+      var planetAge = parseFloat((age / multiplier).toFixed(2));
       return planetAge;
     }
   }]);
@@ -78,13 +78,13 @@ var _time = require('./../js/time.js');
 $(document).ready(function () {
   $("#date-form").submit(function (event) {
     event.preventDefault();
+    $().html;
     var sex = $('#sex').val();
     var country = $('#countries').val();
     var dob = $('#birthday').val();
     var birthday = new _time.TimeCalc(new Date($('#birthday').val()));
     var today = new _time.TimeCalc(new Date());
     var secondsLived = birthday.findDifferenceBetweenTwoDates(today);
-    alert(secondsLived);
     var earthYears = birthday.calculateAgeInEarthYears(today);
     $.ajax({
       url: 'http://api.population.io/1.0/life-expectancy/total/' + sex + '/' + country + '/' + dob + '/',

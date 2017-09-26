@@ -17,12 +17,14 @@ describe(TimeCalc, function(){
   });
   it('should return the age by planet', function(){
     let testAge = new TimeCalc(new Date("2000-09-09"))
-    expect(testAge.getAgeInYearsByPlanet(27, "Mercury").toEqual(6.48);
+    let age = 27
+    let planet = "Mercury"
+    expect(testAge.getAgeInYearsByPlanet(age, planet)).toEqual(112.5);
   });
   it('should calculate how many years you have left to live on earth', function(){
     let testAge = new TimeCalc(new Date("2000-09-09"))
     let testAge2 = new TimeCalc(new Date("2001-09-09"))
     let AgeTotal = 4;
-    expect(testAge.calculateTimeLeft(AgeTotal, testAge).toEqual(3);
+    expect(testAge.calculateTimeLeft(AgeTotal, testAge)).toEqual(4);
   });
 })

@@ -3,13 +3,13 @@ import {TimeCalc} from './../js/time.js';
 $(document).ready(function(){
   $("#date-form").submit(function(event) {
     event.preventDefault();
+    $().html
     let sex = $('#sex').val();
     let country = $('#countries').val();
     let dob = $('#birthday').val();
     let birthday = new TimeCalc(new Date($('#birthday').val()));
     let today = new TimeCalc(new Date());
     let secondsLived = birthday.findDifferenceBetweenTwoDates(today);
-    alert(secondsLived);
     let earthYears = birthday.calculateAgeInEarthYears(today);
     $.ajax({
       url: `http://api.population.io/1.0/life-expectancy/total/${sex}/${country}/${dob}/`,

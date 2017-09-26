@@ -15,11 +15,11 @@ export class TimeCalc {
     return difference;
   }
   calculateAgeInEarthYears(currentDate){
-    let age = parseFloat(this.findDifferenceBetweenTwoDates(currentDate)/ 31536000).toFixed(2);
+    let age = parseFloat((this.findDifferenceBetweenTwoDates(currentDate)/ 31536000).toFixed(2));
     return age;
   }
   calculateTimeLeft(total, currentDate){
-    let age = parseFloat(total - (this.calculateAgeInEarthYears(currentDate))).toFixed(2);
+    let age = parseFloat(total - (this.calculateAgeInEarthYears(currentDate)).toFixed(2));
 
     return age;
   }
@@ -36,11 +36,11 @@ export class TimeCalc {
     }else if (planet  == "Earth"){
       multiplier = 1;
     }else if (planet  == "Sun"){
-      return "YOu would burn bright like a star";
+      return "You would burn bright like a star";
     }else{
       return "I'm not sure how you got that planet, but we don't have data for it";
     }
-    let planetAge = parseFloat(age / multiplier).toFixed(2);
+    let planetAge = parseFloat((age / multiplier).toFixed(2));
     return planetAge;
   }
 }
