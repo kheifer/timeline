@@ -35,6 +35,14 @@ export class TimeCalc {
       multiplier = 11.88;
     }else if (planet  == "Earth"){
       multiplier = 1;
+    }else if (planet  == "Saturn"){
+      multiplier = 29.46;
+    }else if (planet  == "Uranus"){
+      multiplier = 84.01;
+    }else if (planet  == "Neptune"){
+      multiplier = 164.79;
+    }else if (planet  == "Pluto"){
+      multiplier = 248.59;
     }else if (planet  == "Sun"){
       return "You would burn bright like a star";
     }else{
