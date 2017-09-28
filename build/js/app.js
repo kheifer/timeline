@@ -128,7 +128,6 @@ $(document).ready(function () {
       success: function success(response) {
         var totalLifeExpect = response.total_life_expectancy;
         var yearsLeft = birthday.calculateTimeLeft(totalLifeExpect, today);
-        alert(yearsLeft);
         var MercuryAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Mercury");
         var VenusAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Venus");
         var EarthAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Earth");

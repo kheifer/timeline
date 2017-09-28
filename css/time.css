@@ -2,6 +2,8 @@ body{
   background-image: url(../images/nasa.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  color: black;
 }
 h1, h2{
   text-align: center;
@@ -9,4 +11,14 @@ h1, h2{
 }
 .result{
   display: none;
+}
+.result .well {
+  color: #fff;
+  background-color: #000;
+  opacity: 0.6;
+}
+.result .well img{
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

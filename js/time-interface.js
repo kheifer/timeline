@@ -35,7 +35,6 @@ $(document).ready(function(){
       success: function(response) {
         let totalLifeExpect = response.total_life_expectancy;
         let yearsLeft = birthday.calculateTimeLeft(totalLifeExpect, today);
-        alert(yearsLeft);
         let MercuryAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Mercury");
         let VenusAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Venus");
         let EarthAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Earth");
