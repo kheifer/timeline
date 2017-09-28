@@ -5,10 +5,13 @@ body{
   background-attachment: fixed;
   color: black;
 }
+.container, .form{
+  padding-top: 1.5em;
+  margin-top: 1em;
+}
 h1, h2{
   text-align: center;
   color: white;
-  font-family: 'Space Mono', monospace;
 }
 .result{
   display: none;
@@ -17,9 +20,11 @@ h1, h2{
   color: #fff;
   background-color: #000;
   opacity: 0.6;
+  text-align: center;
 }
 .result .well img{
   display: block;
     margin-left: auto;
     margin-right: auto;
 }
+.results .well .
