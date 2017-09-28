@@ -56,7 +56,16 @@ $(document).ready(function(){
         $('.timeLeftOnPluto').text(PlutoAgeLeft+" years left on Pluto");
       },
       error: function() {
-        alert("There was an error processing a your life expectancy. Please try again.");
+        alert("There was an error processing your life expectancy. Please try again.");
+        $('.timeLeftOnMercury').text("");
+        $('.timeLeftOnVenus').text("");
+        $('.timeLeftOnEarth').text("");
+        $('.timeLeftOnMars').text("");
+        $('.timeLeftOnJupiter').text("");
+        $('.timeLeftOnSaturn').text("");
+        $('.timeLeftOnUranus').text("");
+        $('.timeLeftOnNeptune').text("");
+        $('.timeLeftOnPluto').text("");
       }
     });
   });
@@ -70,7 +79,7 @@ $(document).ready(function(){
       });
       },
       error: function() {
-        alert("There was an error processing a list. Please try again.");
+        alert("There was an error processing the countries list. Please reload the page.");
       }
     });
 });
