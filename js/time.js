@@ -3,12 +3,11 @@ export class TimeCalc {
   constructor (birthday) {
     this.birthday = birthday;
   }
-
   findSeconds(){
     let timeLived = (this.birthday.getTime())/1000;
     return timeLived;
   }
-  findSecondsByAge(Age){
+  findSecondsByAge(age){
     let seconds = age * 31556952;
    return seconds;
   }

@@ -27,4 +27,9 @@ describe(TimeCalc, function(){
     let AgeTotal = 4;
     expect(testAge.calculateTimeLeft(AgeTotal, testAge)).toEqual(4);
   });
+  it('should calculate time in seconds based on given age', function(){
+    let testAge = new TimeCalc()
+    let age = 27
+    expect(testAge.findSecondsByAge(age)).toEqual(852037704);
+  });
 })
