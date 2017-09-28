@@ -54,7 +54,7 @@ export class TimeCalc {
     let planetAge = parseFloat((age / multiplier).toFixed(2));
 
     if(planetAge < 0){
-      return "You've been alive "+(Math.abs(planetAge))+" ";
+      return "You've been alive "+(Math.abs(planetAge))+" longer than the average human.";
     }
     return planetAge;
   }

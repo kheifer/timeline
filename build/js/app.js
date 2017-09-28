@@ -79,7 +79,7 @@ var TimeCalc = exports.TimeCalc = function () {
       var planetAge = parseFloat((age / multiplier).toFixed(2));
 
       if (planetAge < 0) {
-        return "You've been alive " + Math.abs(planetAge) + " ";
+        return "You've been alive " + Math.abs(planetAge) + " longer than the average human.";
       }
       return planetAge;
     }
@@ -112,15 +112,15 @@ $(document).ready(function () {
     var UranusAge = birthday.getAgeInYearsByPlanet(earthYears, "Uranus");
     var NeptuneAge = birthday.getAgeInYearsByPlanet(earthYears, "Neptune");
     var PlutoAge = birthday.getAgeInYearsByPlanet(earthYears, "Pluto");
-    $('.timeLivedOnMercury').text(MercuryAge + " years on Mercury");
-    $('.timeLivedOnVenus').text(VenusAge + " years on Venus");
-    $('.timeLivedOnEarth').text(earthYears + " years on Earth");
-    $('.timeLivedOnMars').text(MarsAge + " years on Mars");
-    $('.timeLivedOnJupiter').text(JupiterAge + " years on Jupiter");
-    $('.timeLivedOnSaturn').text(SaturnAge + " years on Saturn");
-    $('.timeLivedOnUranus').text(UranusAge + " years on Uranus");
-    $('.timeLivedOnNeptune').text(NeptuneAge + " years on Neptune");
-    $('.timeLivedOnPluto').text(PlutoAge + " years on Pluto");
+    $('.timeLivedOnMercury').text(MercuryAge);
+    $('.timeLivedOnVenus').text(VenusAge);
+    $('.timeLivedOnEarth').text(earthYears);
+    $('.timeLivedOnMars').text(MarsAge);
+    $('.timeLivedOnJupiter').text(JupiterAge);
+    $('.timeLivedOnSaturn').text(SaturnAge);
+    $('.timeLivedOnUranus').text(UranusAge);
+    $('.timeLivedOnNeptune').text(NeptuneAge);
+    $('.timeLivedOnPluto').text(PlutoAge);
     $.ajax({
       url: 'http://api.population.io/1.0/life-expectancy/total/' + sex + '/' + country + '/' + dob + '/',
       type: 'GET',
@@ -137,15 +137,15 @@ $(document).ready(function () {
         var UranusAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Uranus");
         var NeptuneAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Neptune");
         var PlutoAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Pluto");
-        $('.timeLeftOnMercury').text(MercuryAgeLeft + " years left on Mercury");
-        $('.timeLeftOnVenus').text(VenusAgeLeft + " years left on Venus");
-        $('.timeLeftOnEarth').text(EarthAgeLeft + " years left on Earth");
-        $('.timeLeftOnMars').text(MarsAgeLeft + " years left on Mars");
-        $('.timeLeftOnJupiter').text(JupiterAgeLeft + " years left on Jupiter");
-        $('.timeLeftOnSaturn').text(SaturnAgeLeft + " years left on Saturn");
-        $('.timeLeftOnUranus').text(UranusAgeLeft + " years left on Uranus");
-        $('.timeLeftOnNeptune').text(NeptuneAgeLeft + " years left on Neptune");
-        $('.timeLeftOnPluto').text(PlutoAgeLeft + " years left on Pluto");
+        $('.timeLeftOnMercury').text(MercuryAgeLeft);
+        $('.timeLeftOnVenus').text(VenusAgeLeft);
+        $('.timeLeftOnEarth').text(EarthAgeLeft);
+        $('.timeLeftOnMars').text(MarsAgeLeft);
+        $('.timeLeftOnJupiter').text(JupiterAgeLeft);
+        $('.timeLeftOnSaturn').text(SaturnAgeLeft);
+        $('.timeLeftOnUranus').text(UranusAgeLeft);
+        $('.timeLeftOnNeptune').text(NeptuneAgeLeft);
+        $('.timeLeftOnPluto').text(PlutoAgeLeft);
       },
       error: function error(result) {
         console.log(result.responseText);
