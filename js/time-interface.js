@@ -55,17 +55,10 @@ $(document).ready(function(){
         $('.timeLeftOnNeptune').text(NeptuneAgeLeft+" years left on Neptune");
         $('.timeLeftOnPluto').text(PlutoAgeLeft+" years left on Pluto");
       },
-      error: function() {
-        alert("There was an error processing your life expectancy. Please try again.");
-        $('.timeLeftOnMercury').text("");
-        $('.timeLeftOnVenus').text("");
-        $('.timeLeftOnEarth').text("");
-        $('.timeLeftOnMars').text("");
-        $('.timeLeftOnJupiter').text("");
-        $('.timeLeftOnSaturn').text("");
-        $('.timeLeftOnUranus').text("");
-        $('.timeLeftOnNeptune').text("");
-        $('.timeLeftOnPluto').text("");
+      error: function(result) {
+        console.log(result.responseText);
+        alert("There was an error processing your life expectancy. Only birthdays only dates between 01-01-1920 and 12-31-2059 are currently supported. Please try again.");
+        $('.expectancy').text("");
       }
     });
   });

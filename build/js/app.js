@@ -24,7 +24,7 @@ var TimeCalc = exports.TimeCalc = function () {
     }
   }, {
     key: "findSecondsByAge",
-    value: function findSecondsByAge(Age) {
+    value: function findSecondsByAge(age) {
       var seconds = age * 31556952;
       return seconds;
     }
@@ -148,8 +148,10 @@ $(document).ready(function () {
         $('.timeLeftOnNeptune').text(NeptuneAgeLeft + " years left on Neptune");
         $('.timeLeftOnPluto').text(PlutoAgeLeft + " years left on Pluto");
       },
-      error: function error() {
-        alert("There was an error processing a your life expectancy. Please try again.");
+      error: function error(result) {
+        console.log(result.responseText);
+        alert("There was an error processing your life expectancy. Only birthdays only dates between 01-01-1920 and 12-31-2059 are currently supported. Please try again.");
+        $('.expectancy').text("");
       }
     });
   });
@@ -163,7 +165,7 @@ $(document).ready(function () {
       });
     },
     error: function error() {
-      alert("There was an error processing a list. Please try again.");
+      alert("There was an error processing the countries list. Please reload the page.");
     }
   });
 });
