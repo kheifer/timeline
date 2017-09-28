@@ -8,6 +8,10 @@ export class TimeCalc {
     let timeLived = (this.birthday.getTime())/1000;
     return timeLived;
   }
+  findSecondsByAge(Age){
+    let seconds = age * 31556952;
+   return seconds;
+  }
   findDifferenceBetweenTwoDates(second){
     let primary = this.findSeconds();
     let secondary =  second.findSeconds();
@@ -49,6 +53,10 @@ export class TimeCalc {
       return "I'm not sure how you got that planet, but we don't have data for it";
     }
     let planetAge = parseFloat((age / multiplier).toFixed(2));
+
+    if(planetAge < 0){
+      return "You've been alive "+(Math.abs(planetAge))+" ";
+    }
     return planetAge;
   }
 }

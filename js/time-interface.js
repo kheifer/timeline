@@ -38,6 +38,7 @@ $(document).ready(function(){
         alert(yearsLeft);
         let MercuryAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Mercury");
         let VenusAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Venus");
+        let EarthAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Earth");
         let MarsAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Mars");
         let JupiterAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Jupiter");
         let SaturnAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Saturn");
@@ -46,7 +47,7 @@ $(document).ready(function(){
         let PlutoAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Pluto");
         $('.timeLeftOnMercury').text(MercuryAgeLeft+" years left on Mercury");
         $('.timeLeftOnVenus').text(VenusAgeLeft+" years left on Venus");
-        $('.timeLeftOnEarth').text(yearsLeft+" years left on Earth");
+        $('.timeLeftOnEarth').text(EarthAgeLeft+" years left on Earth");
         $('.timeLeftOnMars').text(MarsAgeLeft+" years left on Mars");
         $('.timeLeftOnJupiter').text(JupiterAgeLeft+" years left on Jupiter");
         $('.timeLeftOnSaturn').text(SaturnAgeLeft+" years left on Saturn");

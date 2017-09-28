@@ -23,6 +23,12 @@ var TimeCalc = exports.TimeCalc = function () {
       return timeLived;
     }
   }, {
+    key: "findSecondsByAge",
+    value: function findSecondsByAge(Age) {
+      var seconds = age * 31556952;
+      return seconds;
+    }
+  }, {
     key: "findDifferenceBetweenTwoDates",
     value: function findDifferenceBetweenTwoDates(second) {
       var primary = this.findSeconds();
@@ -71,6 +77,10 @@ var TimeCalc = exports.TimeCalc = function () {
         return "I'm not sure how you got that planet, but we don't have data for it";
       }
       var planetAge = parseFloat((age / multiplier).toFixed(2));
+
+      if (planetAge < 0) {
+        return "You've been alive " + Math.abs(planetAge) + " ";
+      }
       return planetAge;
     }
   }]);
@@ -121,6 +131,7 @@ $(document).ready(function () {
         alert(yearsLeft);
         var MercuryAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Mercury");
         var VenusAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Venus");
+        var EarthAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Earth");
         var MarsAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Mars");
         var JupiterAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Jupiter");
         var SaturnAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Saturn");
@@ -129,7 +140,7 @@ $(document).ready(function () {
         var PlutoAgeLeft = birthday.getAgeInYearsByPlanet(yearsLeft, "Pluto");
         $('.timeLeftOnMercury').text(MercuryAgeLeft + " years left on Mercury");
         $('.timeLeftOnVenus').text(VenusAgeLeft + " years left on Venus");
-        $('.timeLeftOnEarth').text(yearsLeft + " years left on Earth");
+        $('.timeLeftOnEarth').text(EarthAgeLeft + " years left on Earth");
         $('.timeLeftOnMars').text(MarsAgeLeft + " years left on Mars");
         $('.timeLeftOnJupiter').text(JupiterAgeLeft + " years left on Jupiter");
         $('.timeLeftOnSaturn').text(SaturnAgeLeft + " years left on Saturn");

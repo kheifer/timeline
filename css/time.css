@@ -1,3 +1,8 @@
+body{
+  background-image: url(../images/nasa.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .result{
   display: none;
 }
